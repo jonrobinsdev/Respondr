@@ -34,6 +34,8 @@ public class RespondrChangePasswordScreen extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         this.setTitle("Change Password");
 
         oldPasswordTextField.addKeyListener(new KeyListener() {

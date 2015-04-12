@@ -5,6 +5,13 @@
  */
 package respondr;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import static respondr.RespondrLogInScreen.friendsList;
+import static respondr.RespondrMainScreen.onlineFriendsList;
+
 /**
  *
  * @author hmf5hnz
@@ -14,8 +21,66 @@ public class RespondrUserProfileScreen extends javax.swing.JFrame {
     /**
      * Creates new form RespondrUserProfileScreen
      */
-    public RespondrUserProfileScreen() {
+    private static String name;
+    public static String[] retrievedFriendsList = new String[10];
+    
+    public RespondrUserProfileScreen(String name) {
         initComponents();
+        this.name = name;
+
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        try (BufferedReader br = new BufferedReader(new FileReader("UserDatabase.txt"))) {
+            String line = "";
+            while ((line = br.readLine()) != null) {
+                if (line.substring(0, 49).contains(name)) {
+                    int position = 1;
+                    while(!line.substring(0, position).contains(" ")){
+                        position++;
+                    }
+                    titleText.setText(line.substring(0, 49).trim());
+                    firstNameText.setText(line.substring(0, position).trim());
+                    lastNameText.setText(line.substring(position, 49).trim());
+                    StringBuffer friend = new StringBuffer();
+                    if (line.length() >= 151) {
+                        int pastPosition = 150;
+                        int currentPosition = 151;
+                        int friendsListArrayPosition = 0;
+                        while (!line.substring(pastPosition, currentPosition).contains("|")) {
+                            currentPosition++;
+                            if (line.substring(pastPosition, currentPosition).contains("|")) {
+                                System.out.println(line.substring(pastPosition, currentPosition - 1));
+                                retrievedFriendsList[friendsListArrayPosition] = line.substring(pastPosition, currentPosition - 1);
+                                friendsListArrayPosition++;
+                                pastPosition = currentPosition;
+                                currentPosition = pastPosition + 1;
+                                if (pastPosition == line.length()) {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            friendsList.setModel(new javax.swing.AbstractListModel() {
+                String[] strings = retrievedFriendsList;
+
+                public int getSize() {
+                    return strings.length;
+                }
+
+                public Object getElementAt(int i) {
+                    return strings[i];
+                }
+            });
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR: EITHER FILE'S NOT FOUND OR SERVER ISN'T OPEN YET!", "ERROR!!", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println(e);
+        }
+
     }
 
     /**
@@ -27,17 +92,85 @@ public class RespondrUserProfileScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        titleText = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        friendsList = new javax.swing.JList();
+        firstNameText = new javax.swing.JLabel();
+        lastNameText = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        titleText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        titleText.setText("FIRST AND LAST NAME");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setText("First Name:");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setText("Last Name:");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setText("Friends:");
+
+        friendsList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(friendsList);
+
+        firstNameText.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        firstNameText.setText("firstName");
+
+        lastNameText.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lastNameText.setText("lastName");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(47, 47, 47)
+                        .addComponent(jScrollPane1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(titleText)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(firstNameText, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                                .addComponent(lastNameText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addGap(68, 68, 68))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(titleText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameText))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(lastNameText))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -73,11 +206,19 @@ public class RespondrUserProfileScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RespondrUserProfileScreen().setVisible(true);
+                new RespondrUserProfileScreen(name).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel firstNameText;
+    private javax.swing.JList friendsList;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lastNameText;
+    private javax.swing.JLabel titleText;
     // End of variables declaration//GEN-END:variables
 }

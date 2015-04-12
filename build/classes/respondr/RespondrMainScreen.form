@@ -68,6 +68,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="View Profile"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optionsButton2ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -148,7 +151,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="friendsList.addMouseListener(new MouseAdapter() {&#xa;    public void mouseClicked(MouseEvent evt) {&#xa;        JList list = (JList)evt.getSource();&#xa;        if (evt.getClickCount() == 1) {&#xa;            int index = list.locationToIndex(evt.getPoint());&#xa;        } &#xa;        if (evt.getClickCount() == 2) {&#xa;            int index = list.locationToIndex(evt.getPoint());&#xa;            try{&#xa;            System.out.println(&quot;Starting conversation with &quot; + list.getModel().getElementAt(index));&#xa;            new RespondrMessageScreen(list.getModel().getElementAt(index).toString(), client).setVisible(true);&#xa;}&#xa;            catch(IOException e){&#xa;            System.out.println(&quot;Couldnt make conversation screen&quot;);&#xa;}&#xa;        }&#xa;    }&#xa;});"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="friendsList.addMouseListener(new MouseAdapter() {&#xa;    public void mouseClicked(MouseEvent evt) {&#xa;        JList list = (JList)evt.getSource();&#xa;        if (evt.getClickCount() == 1) {&#xa;            int index = list.locationToIndex(evt.getPoint());&#xa;        } &#xa;        if (evt.getClickCount() == 2) {&#xa;            int index = list.locationToIndex(evt.getPoint());&#xa;            try{&#xa;            System.out.println(&quot;Starting conversation with &quot; + list.getModel().getElementAt(index));&#xa;            new RespondrMessageScreen(list.getModel().getElementAt(index).toString(), client).setVisible(true);&#xa;}&#xa;            catch(IOException e){&#xa;            System.out.println(&quot;Couldnt make conversation screen&quot;);&#xa;}&#xa;        }&#xa;        if(evt.getButton() == java.awt.event.MouseEvent.BUTTON3){&#xa;            int index = list.locationToIndex(evt.getPoint());&#xa;            new RespondrUserProfileScreen(list.getModel().getElementAt(index).toString()).setVisible(true);&#xa; }&#xa;    }&#xa;});"/>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RespondrMainScreen_jList1"/>
           </AuxValues>
         </Component>

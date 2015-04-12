@@ -150,6 +150,10 @@ public class RespondrMainScreen extends javax.swing.JFrame implements Runnable {
                         System.out.println("Couldnt make conversation screen");
                     }
                 }
+                if(evt.getButton() == java.awt.event.MouseEvent.BUTTON3){
+                    int index = list.locationToIndex(evt.getPoint());
+                    new RespondrUserProfileScreen(list.getModel().getElementAt(index).toString()).setVisible(true);
+                }
             }
         });
         jScrollPane1.setViewportView(friendsList);
@@ -230,6 +234,11 @@ public class RespondrMainScreen extends javax.swing.JFrame implements Runnable {
         Options.add(optionsButton1);
 
         optionsButton2.setText("View Profile");
+        optionsButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optionsButton2ActionPerformed(evt);
+            }
+        });
         Options.add(optionsButton2);
 
         taskBar.add(Options);
@@ -487,6 +496,10 @@ public class RespondrMainScreen extends javax.swing.JFrame implements Runnable {
     private void optionsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsButton1ActionPerformed
         new RespondrChangePasswordScreen(name).setVisible(true);
     }//GEN-LAST:event_optionsButton1ActionPerformed
+
+    private void optionsButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsButton2ActionPerformed
+        new RespondrUserProfileScreen(name).setVisible(true);
+    }//GEN-LAST:event_optionsButton2ActionPerformed
 
     /**
      * @param args the command line arguments
