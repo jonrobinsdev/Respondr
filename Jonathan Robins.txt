@@ -6,3 +6,11 @@ FROM: Alexander Jackson
 im fine
 TO: Alexander Jackson
 good to know
+TO: Alexander Jackson
+howdy
+FROM: Alexander Jackson
+hello
+TO: Alexander Jackson
+whats up
+FROM: Alexander Jackson
+not much

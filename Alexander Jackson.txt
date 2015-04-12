@@ -6,3 +6,11 @@ TO: Jonathan Robins
 im fine
 FROM: Jonathan Robins
 good to know
+FROM: Jonathan Robins
+howdy
+TO: Jonathan Robins
+hello
+FROM: Jonathan Robins
+whats up
+TO: Jonathan Robins
+not much
