@@ -22,7 +22,7 @@ import static respondr.RespondrLogInScreen.name;
  *
  * @author HMF5HNZ
  */
-public class RespondrMainScreen extends javax.swing.JFrame implements Runnable {
+public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runnable {
 
     /**
      * Creates new form RespondrMainScreen
@@ -39,7 +39,7 @@ public class RespondrMainScreen extends javax.swing.JFrame implements Runnable {
     public static String newOnline = "";
 
     //sets up components and alignments
-    public RespondrMainScreen(String name, String[] retrievedFriendsList) throws IOException {
+    public RespondrMainScreenAdmin(String name, String[] retrievedFriendsList) throws IOException {
         this.name = name;
         this.setTitle(name);
 
@@ -518,23 +518,26 @@ public class RespondrMainScreen extends javax.swing.JFrame implements Runnable {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RespondrMainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RespondrMainScreenAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RespondrMainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RespondrMainScreenAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RespondrMainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RespondrMainScreenAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RespondrMainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RespondrMainScreenAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new RespondrMainScreen(name, retrievedFriendsList).setVisible(true);
+                    new RespondrMainScreenAdmin(name, retrievedFriendsList).setVisible(true);
                 } catch (IOException ex) {
-                    Logger.getLogger(RespondrMainScreen.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(RespondrMainScreenAdmin.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

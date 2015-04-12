@@ -9,12 +9,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.text.DefaultCaret;
+import static respondr.RespondrChangePasswordScreen.name;
 import static respondr.Server.users;
 
 /**
@@ -81,6 +89,45 @@ public class RespondrMessageScreen extends javax.swing.JFrame {
                     if (client.message.substring(stringPosition + 7, client.message.length()).contains(recipient)) {
                         client.message = client.message.substring(0, stringPosition - 1);
                         this.conversationTextArea.append("\n" + client.message);
+                        //logic for conversation database
+                        try {
+
+                            File file = new File(client.name + ".txt");
+
+                            //if file doesnt exists, then create it
+                            if (!file.exists()) {
+                                file.createNewFile();
+                            }
+
+                            //adding to conversation database for person receiving message
+                            FileWriter fileWriter = new FileWriter(file.getName(), true);
+                            BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
+                            bufferWriter.write("FROM: " + recipient);
+                            bufferWriter.newLine();
+                            bufferWriter.write(client.message);
+                            bufferWriter.newLine();
+                            bufferWriter.close();
+                            
+                            //adding to conversation for person who sent it
+                            file = new File(recipient + ".txt");
+                            if (!file.exists()) {
+                                file.createNewFile();
+                            }
+                            fileWriter = new FileWriter(file.getName(), true);
+                            bufferWriter = new BufferedWriter(fileWriter);
+                            bufferWriter.write("TO: " + client.name);
+                            bufferWriter.newLine();
+                            bufferWriter.write(client.message);
+                            bufferWriter.newLine();
+                            bufferWriter.close();
+                            
+                            System.out.println("Added conversation to database.");
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                        System.out.println(client.name + " " + recipient);
                     }
                     client.newMessage = false;
                 }
@@ -90,7 +137,7 @@ public class RespondrMessageScreen extends javax.swing.JFrame {
         Thread messageThread = new Thread(getMessage);
         messageThread.start();
     }
-    
+
     public static void reprocessMessage(String message) throws IOException {
         
         int stringPosition = 1;
