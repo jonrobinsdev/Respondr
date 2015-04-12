@@ -27,7 +27,8 @@ public class RespondrDeleteAFriendScreen extends javax.swing.JFrame {
         initComponents();
 
         this.name = name;
-
+        
+        this.nameTextField.requestFocusInWindow();
         nameButton.setSelected(true);
         emailTextField.setEditable(false);
         this.setLocationRelativeTo(null);

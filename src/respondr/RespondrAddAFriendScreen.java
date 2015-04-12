@@ -26,6 +26,7 @@ public class RespondrAddAFriendScreen extends javax.swing.JFrame {
         
         this.name = name;
         
+        this.nameTextField.requestFocusInWindow();
         nameButton.setSelected(true);
         emailTextField.setEditable(false);
         this.setLocationRelativeTo(null);

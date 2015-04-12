@@ -1,3 +1,4 @@
+admin                                             admin@respondr.com                                password                                          Jonathan Robins|Alexander Jackson|Brandon Carter|David Brown|Hello World|Maddie Alvarez|Ngoc Nguyen|
 Jonathan Robins                                   jonathan@gmail.com                                password                                          Alexander Jackson|Brandon Carter|David Brown|Hello World|Maddie Alvarez|
 Alexander Jackson                                 alex@yahoo.com                                    password2                                         Jonathan Robins|Brandon Carter|David Brown|Hello World|
 Brandon Carter                                    brandon@gmail.com                                 password3                                         Jonathan Robins|Alexander Jackson|David Brown|Hello World|
@@ -6,7 +7,6 @@ Hello World                                       hw@gmail.com                  
 yo yo                                             yo                                                yo                                                
 hi hi                                             hi                                                hi                                                
 Sally Jenkins                                     sally@gmail.com                                   password                                          
-lol lol                                           lol                                               lol                                               
 Jalexander Ackson                                 poophead@gmail.com                                poop                                              
 Maddie Alvarez                                    maddie@gmail.com                                  password                                          Jonathan Robins|
 Ngoc Nguyen                                       ngoc@gmail.com                                    password                                          Jonathan Robins|

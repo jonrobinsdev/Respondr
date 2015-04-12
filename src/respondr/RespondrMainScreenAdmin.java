@@ -531,7 +531,7 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
     }//GEN-LAST:event_searchConversationsButtonActionPerformed
 
     private void removeUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserButtonActionPerformed
-        // TODO add your handling code here:
+        new RespondrRemoveUserScreen().setVisible(true);
     }//GEN-LAST:event_removeUserButtonActionPerformed
 
     /**

@@ -1,0 +1,8 @@
+FROM: Jonathan Robins
+hello good sir
+TO: Jonathan Robins
+good day how are you?
+TO: Jonathan Robins
+im fine
+FROM: Jonathan Robins
+good to know
