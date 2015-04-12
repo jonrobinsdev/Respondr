@@ -117,8 +117,11 @@ public class RespondrLogInScreen extends javax.swing.JFrame {
                             friendsList[i] = "";
                         }
                     }
-
-                    new RespondrMainScreen(name, friendsList).setVisible(true);
+                    if (emailTextField.getText().equals("admin@respondr.com")) {
+                        new RespondrMainScreenAdmin(name, friendsList).setVisible(true);
+                    } else {
+                        new RespondrMainScreen(name, friendsList).setVisible(true);
+                    }
                     found = true;
                     this.dispose();
                     break;

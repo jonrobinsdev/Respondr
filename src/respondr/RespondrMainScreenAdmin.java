@@ -115,6 +115,8 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
         onlineList = new javax.swing.JList();
         addAFriendButton = new javax.swing.JButton();
         sendMessageButton = new javax.swing.JButton();
+        searchConversationsButton = new javax.swing.JButton();
+        removeUserButton = new javax.swing.JButton();
         taskBar = new javax.swing.JMenuBar();
         File = new javax.swing.JMenu();
         fileButton1 = new javax.swing.JMenuItem();
@@ -176,6 +178,21 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
         sendMessageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sendMessageButtonActionPerformed(evt);
+            }
+        });
+
+        searchConversationsButton.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        searchConversationsButton.setText("Search Conversations");
+        searchConversationsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchConversationsButtonActionPerformed(evt);
+            }
+        });
+
+        removeUserButton.setText("Remove User");
+        removeUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeUserButtonActionPerformed(evt);
             }
         });
 
@@ -256,11 +273,15 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(sendMessageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(searchConversationsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sendMessageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addComponent(addAFriendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(addAFriendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -273,7 +294,11 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sendMessageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addAFriendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchConversationsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -501,6 +526,14 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
         new RespondrUserProfileScreen(name).setVisible(true);
     }//GEN-LAST:event_optionsButton2ActionPerformed
 
+    private void searchConversationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchConversationsButtonActionPerformed
+        new RespondrSearchConversationsScreen().setVisible(true);
+    }//GEN-LAST:event_searchConversationsButtonActionPerformed
+
+    private void removeUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeUserButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -563,6 +596,8 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
     private javax.swing.JList onlineList;
     private javax.swing.JMenuItem optionsButton1;
     private javax.swing.JMenuItem optionsButton2;
+    private javax.swing.JButton removeUserButton;
+    private javax.swing.JButton searchConversationsButton;
     private javax.swing.JButton sendMessageButton;
     private javax.swing.JMenuBar taskBar;
     // End of variables declaration//GEN-END:variables

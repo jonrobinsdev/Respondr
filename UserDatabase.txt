@@ -1,3 +1,4 @@
+admin                                             admin@respondr.com                                password                                          Jonathan Robins|Alexander Jackson|Brandon Carter|David Brown|Hello World|Maddie Alvarez|Ngoc Nguyen|
 Jonathan Robins                                   jonathan@gmail.com                                password                                          Alexander Jackson|Brandon Carter|David Brown|Hello World|Maddie Alvarez|
 Alexander Jackson                                 alex@yahoo.com                                    password2                                         Jonathan Robins|Brandon Carter|David Brown|Hello World|
 Brandon Carter                                    brandon@gmail.com                                 password3                                         Jonathan Robins|Alexander Jackson|David Brown|Hello World|

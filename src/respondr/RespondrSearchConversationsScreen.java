@@ -5,6 +5,10 @@
  */
 package respondr;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author hmf5hnz
@@ -16,6 +20,10 @@ public class RespondrSearchConversationsScreen extends javax.swing.JFrame {
      */
     public RespondrSearchConversationsScreen() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.emailTextField.requestFocusInWindow();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -27,25 +35,97 @@ public class RespondrSearchConversationsScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        titleText = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        emailTextField = new javax.swing.JTextField();
+        searchButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        titleText.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        titleText.setText("Enter the email of the person whose conversations you wish to view:");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setText("Email:");
+
+        searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titleText)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(179, 179, 179)
+                .addComponent(searchButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(titleText, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(searchButton)
+                .addGap(39, 39, 39))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+
+        
+        try (BufferedReader br = new BufferedReader(new FileReader("UserDatabase.txt"))) {
+            String line = "";
+            boolean found = false;
+            while ((line = br.readLine()) != null) {
+                if (line.substring(50, 99).trim().equals(emailTextField.getText().trim())) {
+                    found = true;
+                    try (BufferedReader br2 = new BufferedReader(new FileReader(line.substring(0, 49).trim() + ".txt"))) {
+                        String line2 = "";
+                        String results = "";
+                        while ((line2 = br2.readLine()) != null) {
+                            results = results + line2 +  "\n";
+                        }
+                        JOptionPane.showMessageDialog(null, results, "Conversatons found for: " + line.substring(0, 49).trim(), JOptionPane.INFORMATION_MESSAGE);
+
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "ERROR: FILE DOESN'T EXIST FOR USER YET", "ERROR!!", JOptionPane.INFORMATION_MESSAGE);
+                        System.out.println(e);
+                    }
+                } else if (line == null && !found) {
+                    JOptionPane.showMessageDialog(null, "Couldn't find email in database.", "ERROR!!", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR: EITHER FILE'S NOT FOUND OR SERVER ISN'T OPEN YET!", "ERROR!!", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println(e);
+        }
+
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+/**
+ * @param args the command line arguments
+ */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -79,5 +159,9 @@ public class RespondrSearchConversationsScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField emailTextField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JLabel titleText;
     // End of variables declaration//GEN-END:variables
 }
