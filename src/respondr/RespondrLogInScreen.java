@@ -30,7 +30,7 @@ public class RespondrLogInScreen extends javax.swing.JFrame {
     public static String name;
     public static String[] friendsList = new String[10];
 
-    public RespondrLogInScreen() {
+    public RespondrLogInScreen(){
         initComponents();
         //set to middle of screen
         this.setLocationRelativeTo(null);
@@ -153,7 +153,7 @@ public class RespondrLogInScreen extends javax.swing.JFrame {
         passwordTextField = new javax.swing.JPasswordField();
         logInButton = new javax.swing.JButton();
         signUpButton = new javax.swing.JButton();
-        titleText = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -195,45 +195,44 @@ public class RespondrLogInScreen extends javax.swing.JFrame {
             }
         });
 
-        titleText.setFont(new java.awt.Font("OCR A Extended", 1, 48)); // NOI18N
-        titleText.setText("RESPONDR");
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/respondr/newpackage/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(140, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(117, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(169, 169, 169))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(titleText)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(101, 101, 101)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(emailTextField)
-                                .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(89, 89, 89)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addComponent(logInButton)))
-                        .addGap(134, 134, 134))
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(101, 101, 101)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(emailTextField)
+                            .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(89, 89, 89)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(94, 94, 94)
+                            .addComponent(logInButton)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(signUpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(162, 162, 162))))
+                        .addGap(28, 28, 28)))
+                .addGap(116, 116, 116))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addComponent(titleText, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(45, 45, 45)
+                .addComponent(jLabel4)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -247,7 +246,7 @@ public class RespondrLogInScreen extends javax.swing.JFrame {
                 .addComponent(logInButton)
                 .addGap(27, 27, 27)
                 .addComponent(signUpButton)
-                .addGap(22, 22, 22))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
@@ -310,9 +309,9 @@ public class RespondrLogInScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton logInButton;
     private javax.swing.JPasswordField passwordTextField;
     private javax.swing.JButton signUpButton;
-    private javax.swing.JLabel titleText;
     // End of variables declaration//GEN-END:variables
 }

@@ -23,49 +23,47 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace pref="140" max="32767" attributes="0"/>
+          <Component id="jLabel4" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="117" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel1" min="-2" pref="177" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="titleText" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" pref="50" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="emailTextField" max="32767" attributes="0"/>
-                              <Component id="passwordTextField" min="-2" pref="254" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" pref="75" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                              <Component id="logInButton" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="emailTextField" max="32767" attributes="0"/>
+                          <Component id="passwordTextField" min="-2" pref="254" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" pref="75" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                          <Component id="logInButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="signUpButton" min="-2" pref="197" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="62" max="32767" attributes="0"/>
-              <Component id="titleText" min="-2" pref="62" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="29" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" pref="14" max="-2" attributes="0"/>
@@ -79,7 +77,7 @@
               <Component id="logInButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="signUpButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -136,12 +134,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signUpButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="titleText">
+    <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="OCR A Extended" size="48" style="1"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/respondr/newpackage/logo.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="RESPONDR"/>
       </Properties>
     </Component>
   </SubComponents>

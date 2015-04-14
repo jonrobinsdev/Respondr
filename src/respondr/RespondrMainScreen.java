@@ -65,7 +65,7 @@ public class RespondrMainScreen extends javax.swing.JFrame implements Runnable {
         client.start(name);
         client.name = name;
 
-        //for checking online of offline
+        //for checking online or offline
         Runnable onlineStatus = () -> {
             while (true) {
                 if (client.message.startsWith("$$ONLINE: ")) {
