@@ -1,16 +1,3 @@
-TO: Alexander Jackson
-hello good sir
 FROM: Alexander Jackson
-good day how are you?
-FROM: Alexander Jackson
-im fine
-TO: Alexander Jackson
-good to know
-TO: Alexander Jackson
-howdy
-FROM: Alexander Jackson
-hello
-TO: Alexander Jackson
-whats up
-FROM: Alexander Jackson
-not much
+hello friend!
+04/14/2015 5:46:50 PM

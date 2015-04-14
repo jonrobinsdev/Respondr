@@ -1,16 +1,3 @@
-FROM: Jonathan Robins
-hello good sir
 TO: Jonathan Robins
-good day how are you?
-TO: Jonathan Robins
-im fine
-FROM: Jonathan Robins
-good to know
-FROM: Jonathan Robins
-howdy
-TO: Jonathan Robins
-hello
-FROM: Jonathan Robins
-whats up
-TO: Jonathan Robins
-not much
+hello friend!
+04/14/2015 5:46:50 PM

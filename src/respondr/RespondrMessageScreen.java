@@ -16,6 +16,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
@@ -88,7 +90,7 @@ public class RespondrMessageScreen extends javax.swing.JFrame {
                     }
                     if (client.message.substring(stringPosition + 7, client.message.length()).contains(recipient)) {
                         client.message = client.message.substring(0, stringPosition - 1);
-                        this.conversationTextArea.append("\n" + client.message);
+                        this.conversationTextArea.append("\n" + recipient + ": " + client.message);
                         //logic for conversation database
                         try {
 
@@ -156,13 +158,15 @@ public class RespondrMessageScreen extends javax.swing.JFrame {
             this.conversationTextArea.append("\n");
         }
         //for spacing layout of conversation correctly
-        StringBuffer newMessage = new StringBuffer("");
+       /* StringBuffer newMessage = new StringBuffer("");
         for (int i = 0; i < 165 - this.enterTextField.getText().length(); i++) {
             newMessage.append(" ");
-        }
-        newMessage.append(this.enterTextField.getText());
-        this.conversationTextArea.append(newMessage.toString());
-        client.sendMessage("$$RECIPIENT: " + recipient + "%" + this.enterTextField.getText() + "$$FROM: " +  client.name);
+        }*/
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
+        String formattedDate = sdf.format(date);
+        this.conversationTextArea.append(client.name + ": " + this.enterTextField.getText() + "\n" + formattedDate );
+        client.sendMessage("$$RECIPIENT: " + recipient + "%" + this.enterTextField.getText() + "\n" + formattedDate   + "$$FROM: " + client.name);
         this.enterTextField.setText("");
     }
 

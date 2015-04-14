@@ -106,7 +106,9 @@ public class RespondrSearchConversationsScreen extends javax.swing.JFrame {
                         while ((line2 = br2.readLine()) != null) {
                             results = results + line2 +  "\n";
                         }
-                        JOptionPane.showMessageDialog(null, results, "Conversatons found for: " + line.substring(0, 49).trim(), JOptionPane.INFORMATION_MESSAGE);
+                        //JOptionPane.showMessageDialog(null, results, "Conversatons found for: " + line.substring(0, 49).trim(), JOptionPane.INFORMATION_MESSAGE);
+                        new RespondrConversationResultsScreen(line.substring(0, 49).trim(), results).setVisible(true);
+                        
 
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, "ERROR: FILE DOESN'T EXIST FOR USER YET", "ERROR!!", JOptionPane.INFORMATION_MESSAGE);
