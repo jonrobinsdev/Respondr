@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,6 +31,9 @@ public class RespondrSignUpScreen extends javax.swing.JFrame {
         this.setResizable(false);
         this.setTitle("Respondr Sign-Up");
 
+        ImageIcon img = new ImageIcon("icon.png");
+        this.setIconImage(img.getImage());
+        
         firstNameTextField.addKeyListener(new KeyListener() {
             @Override
             public void keyPressed(KeyEvent e) {

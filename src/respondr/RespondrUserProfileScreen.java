@@ -7,6 +7,7 @@ package respondr;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static respondr.RespondrLogInScreen.friendsList;
@@ -28,6 +29,9 @@ public class RespondrUserProfileScreen extends javax.swing.JFrame {
         initComponents();
         this.name = name;
 
+        ImageIcon img = new ImageIcon("icon.png");
+        this.setIconImage(img.getImage());
+        
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);

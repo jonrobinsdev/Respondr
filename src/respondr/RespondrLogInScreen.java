@@ -34,8 +34,10 @@ public class RespondrLogInScreen extends javax.swing.JFrame {
 
     public RespondrLogInScreen(){
         initComponents();
-        Color customColor = new Color(25,42,70);
+        Color customColor = new Color(25, 42, 70);
         this.getContentPane().setBackground(customColor);
+        ImageIcon img = new ImageIcon("icon.png");
+        this.setIconImage(img.getImage());
         //this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("newpackage//icon.png")));
         //set to middle of screen
         this.setLocationRelativeTo(null);

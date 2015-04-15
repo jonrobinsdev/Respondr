@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,6 +26,9 @@ public class RespondrAddAFriendScreen extends javax.swing.JFrame {
         initComponents();
         
         this.name = name;
+        
+        ImageIcon img = new ImageIcon("icon.png");
+        this.setIconImage(img.getImage());
         
         this.nameTextField.requestFocusInWindow();
         nameButton.setSelected(true);

@@ -48,6 +48,9 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
         Color customColor = new Color(25,42,70);
         this.getContentPane().setBackground(customColor);
         
+        ImageIcon img = new ImageIcon("icon.png");
+        this.setIconImage(img.getImage());
+        
         this.retrievedFriendsList = retrievedFriendsList;
         this.onlineFriendsList = new String[retrievedFriendsList.length];
         for (int i = 0; i < onlineFriendsList.length; i++) {
@@ -57,7 +60,6 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
                 onlineFriendsList[i] = "Offline";
             }
         }
-        System.out.println(Server.users);
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -200,6 +202,7 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
             }
         });
 
+        searchConversationsButton.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         searchConversationsButton.setText("Search Conversations");
         searchConversationsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

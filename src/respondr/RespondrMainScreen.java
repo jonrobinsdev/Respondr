@@ -47,6 +47,9 @@ public class RespondrMainScreen extends javax.swing.JFrame implements Runnable {
         Color customColor = new Color(25,42,70);
         this.getContentPane().setBackground(customColor);
         
+        ImageIcon img = new ImageIcon("icon.png");
+        this.setIconImage(img.getImage());
+        
         this.retrievedFriendsList = retrievedFriendsList;
         this.onlineFriendsList = new String[retrievedFriendsList.length];
         for (int i = 0; i < onlineFriendsList.length; i++) {
@@ -56,7 +59,6 @@ public class RespondrMainScreen extends javax.swing.JFrame implements Runnable {
                 onlineFriendsList[i] = "Offline";
             }
         }
-        System.out.println(Server.users);
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);

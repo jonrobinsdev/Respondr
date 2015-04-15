@@ -22,6 +22,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultCaret;
 import static respondr.RespondrChangePasswordScreen.name;
@@ -46,6 +47,9 @@ public class RespondrMessageScreen extends javax.swing.JFrame {
         this.port = port;
         this.client = client;
         this.recipient = name;
+        
+        ImageIcon img = new ImageIcon("icon.png");
+        this.setIconImage(img.getImage());
         
         RespondrMessageScreen.title = "Conversation with " + name;
         initComponents();
@@ -106,7 +110,9 @@ public class RespondrMessageScreen extends javax.swing.JFrame {
                             BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
                             bufferWriter.write("FROM: " + recipient);
                             bufferWriter.newLine();
-                            bufferWriter.write(client.message);
+                            bufferWriter.write(client.message.substring(0, client.message.length()-21));
+                            bufferWriter.newLine();
+                            bufferWriter.write(client.message.substring(client.message.length() - 21,client.message.length()));
                             bufferWriter.newLine();
                             bufferWriter.close();
                             
@@ -119,7 +125,9 @@ public class RespondrMessageScreen extends javax.swing.JFrame {
                             bufferWriter = new BufferedWriter(fileWriter);
                             bufferWriter.write("TO: " + client.name);
                             bufferWriter.newLine();
-                            bufferWriter.write(client.message);
+                            bufferWriter.write(client.message.substring(0, client.message.length()-21));
+                            bufferWriter.newLine();
+                            bufferWriter.write(client.message.substring(client.message.length() - 21,client.message.length()));
                             bufferWriter.newLine();
                             bufferWriter.close();
                             
