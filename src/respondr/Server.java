@@ -98,6 +98,17 @@ public class Server {
                 key.send(message);
         }
     }
+     
+     public static void updateTheirFriendsList(String message) throws IOException{
+         for (User key : users.keySet()) {
+             if(message.contains(users.get(key))){
+                  for (User key2 : users.keySet()) {
+                      key.send("$$ONLINE: " + users.get(key2));
+                  }
+             }
+         }
+        
+     }
 
     public static void main(String[] args) {
         new Server(15180).start();
@@ -134,6 +145,7 @@ public class Server {
                     }
                     if(data.startsWith("$$ONLINE: ")){
                         Server.sendGlobalMessage(data);
+                        Server.updateTheirFriendsList(data.substring(10, data.length()));
                     }
 
                     System.out.println("From client: " + data);

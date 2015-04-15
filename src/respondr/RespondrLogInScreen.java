@@ -5,9 +5,11 @@
  */
 package respondr;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,6 +34,9 @@ public class RespondrLogInScreen extends javax.swing.JFrame {
 
     public RespondrLogInScreen(){
         initComponents();
+        Color customColor = new Color(25,42,70);
+        this.getContentPane().setBackground(customColor);
+        //this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("newpackage//icon.png")));
         //set to middle of screen
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -156,8 +161,10 @@ public class RespondrLogInScreen extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(25, 43, 70));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Please enter credentials below:");
 
@@ -168,9 +175,11 @@ public class RespondrLogInScreen extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Email:");
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Password:");
 

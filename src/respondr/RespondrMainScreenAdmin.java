@@ -17,6 +17,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static respondr.RespondrLogInScreen.friendsList;
 import static respondr.RespondrLogInScreen.name;
+import static respondr.RespondrMainScreen.newMessageScreen;
+import static respondr.RespondrMainScreen.onlineFriendsList;
 
 /**
  *
@@ -43,6 +45,9 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
         this.name = name;
         this.setTitle(name);
 
+        Color customColor = new Color(25,42,70);
+        this.getContentPane().setBackground(customColor);
+        
         this.retrievedFriendsList = retrievedFriendsList;
         this.onlineFriendsList = new String[retrievedFriendsList.length];
         for (int i = 0; i < onlineFriendsList.length; i++) {
@@ -84,6 +89,19 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
                                 }
                             });
                         }
+                    }
+                }
+                //for making new message screens with a person
+                if (client.newMessage == true && !client.message.startsWith("$$NAME: ") && !client.message.startsWith("$$ONLINE: ") && !newMessageScreen) {
+                    int stringPosition = 1;
+                    while (!client.message.substring(0, stringPosition).contains("$")) {
+                        stringPosition++;
+                    }
+                    try {
+                        new RespondrMessageScreen(client.message.substring(stringPosition + 7, client.message.length()), client).setVisible(true);
+                        newMessageScreen = true;
+                    } catch (IOException ex) {
+                        Logger.getLogger(RespondrMainScreen.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 // System.out.println(client.message);
@@ -147,6 +165,7 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
                     try{
                         System.out.println("Starting conversation with " + list.getModel().getElementAt(index));
                         new RespondrMessageScreen(list.getModel().getElementAt(index).toString(), client).setVisible(true);
+                        newMessageScreen = true;
                     }
                     catch(IOException e){
                         System.out.println("Couldnt make conversation screen");
@@ -269,25 +288,28 @@ public class RespondrMainScreenAdmin extends javax.swing.JFrame implements Runna
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(searchConversationsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sendMessageButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(addAFriendButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(removeUserButton, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sendMessageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchConversationsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(addAFriendButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(removeUserButton, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

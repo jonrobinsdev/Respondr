@@ -1,3 +1,75 @@
+FROM: Jonathan Robins
+hey
+04/15/2015 9:52:28 AM
 TO: Jonathan Robins
-hello friend!
-04/14/2015 5:46:50 PM
+yo
+04/15/2015 9:52:32 AM
+FROM: Jonathan Robins
+sup man
+04/15/2015 9:52:34 AM
+FROM: Jonathan Robins
+not much
+04/15/2015 9:52:38 AM
+FROM: Jonathan Robins
+yo
+04/15/2015 9:54:29 AM
+TO: Jonathan Robins
+sup
+04/15/2015 9:54:34 AM
+FROM: Jonathan Robins
+not much
+04/15/2015 9:54:46 AM
+TO: Jonathan Robins
+cool
+04/15/2015 9:54:48 AM
+FROM: Jonathan Robins
+how u doin
+04/15/2015 9:54:53 AM
+FROM: Jonathan Robins
+yo
+04/15/2015 9:55:03 AM
+FROM: Jonathan Robins
+hello
+04/15/2015 9:56:25 AM
+TO: Jonathan Robins
+yo
+04/15/2015 9:56:28 AM
+FROM: Jonathan Robins
+whats up m8
+04/15/2015 9:56:31 AM
+TO: Jonathan Robins
+not much u?
+04/15/2015 9:56:34 AM
+FROM: Jonathan Robins
+CHILLIN uoeno
+04/15/2015 9:56:54 AM
+TO: Jonathan Robins
+sweet bro
+04/15/2015 9:56:57 AM
+FROM: Jonathan Robins
+hi
+04/15/2015 9:57:02 AM
+FROM: Jonathan Robins
+sup bro
+04/15/2015 10:13:46 AM
+TO: Jonathan Robins
+yo man
+04/15/2015 10:13:52 AM
+FROM: Jonathan Robins
+whats up
+04/15/2015 10:13:56 AM
+TO: Jonathan Robins
+not much
+04/15/2015 10:13:58 AM
+FROM: Jonathan Robins
+cool
+04/15/2015 10:14:05 AM
+FROM: admin
+hi
+04/15/2015 10:18:35 AM
+TO: admin
+sup
+04/15/2015 10:18:48 AM
+FROM: admin
+not much
+04/15/2015 10:18:54 AM
